@@ -11,8 +11,8 @@ using System.Windows.Forms;
 namespace Pizzeria
 {
     public partial class Form1 : Form
-    {
-        public string[] nr1 = new string[] { "1", "Margerita", "75", "tomatsovs", "ost", "oregano" };
+    {   
+        public string[] nr1 = new string[] { "1", "Margerita", "75", "tomatsovs", "ost", "oregano" };   //liste med pizzaer og informationer {nr, navn, pris, ingredienser...}
         public string[] nr2 = new string[] { "2", "Classic", "80", "tomatsovs", "ost", "oregano", "skinke" };
         public string[] nr3 = new string[] { "3", "Pepperoni", "80", "tomatsovs", "ost", "oregano", "pepperoni" };
 
@@ -23,18 +23,22 @@ namespace Pizzeria
         public Form1()
         {
             InitializeComponent();
+
+            for (int i = 0; i < nr1.Length-1; i++)
+            {
+                tableLayoutPanel1.Text = nr1[i];
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
 
         }
 
         public void AddToCart(int quantity, string[] details)
         {
             orderCount++;
-            string stringCount = Convert.ToString(orderCount);
-            string[] newOrder = new string[] {details[0]};     //Første string kommer ind i order[] nummeret på pizzaenb
+            string[] newOrder = new string[] {details[0]};     //Første string kommer ind i order[] nummeret på pizzaen
 
             for (int i = 0; i < 3; i++) //Udfylder de 3 næste fælter i details[]: nummer, navn og pris
             {
@@ -53,15 +57,27 @@ namespace Pizzeria
 
         public void Cart(string[] details, string[] ingredients)
         {
-            x++;
+            string[] final = new string[] { };
+            string[] finalIng = new string[] { };
             
             for (int i = 0; i <= details.Length; i++)
             {
-                order[i] = details[i];
-            }            
+                final[i] = details[i];
+            }
+
+            for (int i = 0; i <= ingredients.Length; i++)
+            {
+                finalIng[i] = ingredients[i];
+            }
+
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        public void ShowCart()
+        {
+
+        }
+
+        private void displayMenu_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -82,6 +98,29 @@ namespace Pizzeria
         }
 
         private void ordre_Click(object sender, EventArgs e)
+        {
+            ShowCart();
+        }
+
+        private void menuList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= 2; i++)
+            {
+                Console.Write("nr. " + nr1[0] + "  -  " + nr1[1]);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
         }
