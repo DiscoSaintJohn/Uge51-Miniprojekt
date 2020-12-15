@@ -16,33 +16,26 @@ namespace Pizzeria
         public string[] nr2 = new string[] { "2", "Classic", "80", "tomatsovs", "ost", "oregano", "skinke" };
         public string[] nr3 = new string[] { "3", "Pepperoni", "80", "tomatsovs", "ost", "oregano", "pepperoni" };
 
-        int orderCount = 0;
-        public int x = 0;
-        string[] order = new string[] { };
+        public string[] order = new string[] { };
 
         public Form1()
         {
             InitializeComponent();
+        }
 
-            for (int i = 0; i < nr1.Length-1; i++)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < nr1.Length - 1; i++)
             {
                 tableLayoutPanel1.Text = nr1[i];
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void AddToCart(int quantity, string[] details)
         {
-            orderCount++;
-            string[] newOrder = new string[] {details[0]};     //Første string kommer ind i order[] nummeret på pizzaen
-
-            for (int i = 0; i < 3; i++) //Udfylder de 3 næste fælter i details[]: nummer, navn og pris
+            for (int i = 0; i < 3; i++) //Udfylder de 3 første fælter i details[]: nummer, navn og pris
             {
-                newOrder[i+1] = details[i];
+                order[i] = details[i];
             }
 
             string[] ingredients = new string[] { };
@@ -52,10 +45,10 @@ namespace Pizzeria
                 ingredients[i-3] = details[i];
             }
 
-            Cart(details, ingredients);
+            Cart(quantity, details, ingredients);       // sender til Cart
         }
 
-        public void Cart(string[] details, string[] ingredients)
+        public void Cart(int quantity, string[] details, string[] ingredients)
         {
             string[] final = new string[] { };
             string[] finalIng = new string[] { };
