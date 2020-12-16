@@ -12,9 +12,9 @@ namespace Pizzeria
 {
     public partial class Form1 : Form
     {   
-        public string[] nr1 = new string[] { "1", "Margerita", "75", "tomatsovs", "ost", "oregano" };   //liste med pizzaer og informationer {nr, navn, pris, ingredienser...}
-        public string[] nr2 = new string[] { "2", "Classic", "80", "tomatsovs", "ost", "oregano", "skinke" };
-        public string[] nr3 = new string[] { "3", "Pepperoni", "80", "tomatsovs", "ost", "oregano", "pepperoni" };
+        public string[] nr1 = new string[] { "normal", "1", "Margerita", "75", "Pizzabund", "tomatsovs", "ost", "oregano" };   //liste med pizzaer og informationer {str, nr, navn, pris, ingredienser...}
+        public string[] nr2 = new string[] { "normal", "2", "Classic",   "80", "Pizzabund", "tomatsovs", "ost", "oregano", "skinke" };
+        public string[] nr3 = new string[] { "normal", "3", "Pepperoni", "80", "Pizzabund", "tomatsovs", "ost", "oregano", "pepperoni" };
 
         public string[] order = new string[] { };
 
@@ -33,16 +33,16 @@ namespace Pizzeria
 
         public void AddToCart(int quantity, string[] details)
         {
-            for (int i = 0; i < 3; i++) //Udfylder de 3 første fælter i details[]: nummer, navn og pris
+            for (int i = 0; i < 3; i++)     //Udfylder de første 4 fælter i details[]: nummer, navn og pris
             {
                 order[i] = details[i];
             }
 
             string[] ingredients = new string[] { };
             
-            for (int i = 3; i <= details.Length; i++)   //loopet udfylder alle ingredientser fra details[] til ingredients[]
+            for (int i = 4; i <= details.Length; i++)   //loopet udfylder alle ingredienser fra details[] til ingredients[]
             {
-                ingredients[i-3] = details[i];
+                ingredients[i-4] = details[i];
             }
 
             Cart(quantity, details, ingredients);       // sender til Cart
@@ -50,17 +50,17 @@ namespace Pizzeria
 
         public void Cart(int quantity, string[] details, string[] ingredients)
         {
-            string[] final = new string[] { };
-            string[] finalIng = new string[] { };
+            string[] inCart = new string[] { };             // Ny string[] til at holde den sidste ordre
+            string[] inCartIngredients = new string[] { };  // ... Til ingredienser 
             
             for (int i = 0; i <= details.Length; i++)
             {
-                final[i] = details[i];
+                inCart[i] = details[i];
             }
 
             for (int i = 0; i <= ingredients.Length; i++)
             {
-                finalIng[i] = ingredients[i];
+                inCartIngredients[i] = ingredients[i];
             }
 
         }
@@ -75,9 +75,16 @@ namespace Pizzeria
 
         }
 
-        private void alm1_Click(object sender, EventArgs e)
+        private void alm1_Click(object sender, EventArgs e)     // almx_Click sender 1 pizza til AddToCart
         {
             AddToCart(1, nr1);
+        }
+
+        private void addFam1_Click(object sender, EventArgs e)  // famx_Click ændre "normal" til "familie" og sender til AddToCart
+        {
+            nr1[0] = "familie";
+            AddToCart(1, nr1);
+            nr1[0] = "normal";
         }
 
         private void alm2_Click(object sender, EventArgs e)
@@ -85,9 +92,23 @@ namespace Pizzeria
             AddToCart(1, nr2);
         }
 
+        private void addFam2_Click(object sender, EventArgs e)
+        {
+            nr2[0] = "familie";
+            AddToCart(1, nr2);
+            nr2[0] = "normal";
+        }
+
         private void alm3_Click(object sender, EventArgs e)
         {
             AddToCart(1, nr3);
+        }
+
+        private void addFam3_Click(object sender, EventArgs e)
+        {
+            nr3[0] = "familie";
+            AddToCart(1, nr3);
+            nr3[0] = "normal";
         }
 
         private void ordre_Click(object sender, EventArgs e)
@@ -114,6 +135,11 @@ namespace Pizzeria
         }
 
         private void displayMenu_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

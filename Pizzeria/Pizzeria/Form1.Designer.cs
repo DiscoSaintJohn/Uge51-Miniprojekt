@@ -35,15 +35,15 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.alm1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.fam1 = new System.Windows.Forms.Button();
+            this.addFam1 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.alm2 = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.fam2 = new System.Windows.Forms.Button();
+            this.addFam2 = new System.Windows.Forms.Button();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.alm3 = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.fam3 = new System.Windows.Forms.Button();
+            this.addFam3 = new System.Windows.Forms.Button();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.ordre = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,6 +67,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.55556F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // pictureBox1
             // 
@@ -84,15 +85,15 @@
             this.flowLayoutPanel1.Controls.Add(this.textBox2);
             this.flowLayoutPanel1.Controls.Add(this.alm1);
             this.flowLayoutPanel1.Controls.Add(this.checkBox1);
-            this.flowLayoutPanel1.Controls.Add(this.fam1);
+            this.flowLayoutPanel1.Controls.Add(this.addFam1);
             this.flowLayoutPanel1.Controls.Add(this.checkBox2);
             this.flowLayoutPanel1.Controls.Add(this.alm2);
             this.flowLayoutPanel1.Controls.Add(this.checkBox3);
-            this.flowLayoutPanel1.Controls.Add(this.fam2);
+            this.flowLayoutPanel1.Controls.Add(this.addFam2);
             this.flowLayoutPanel1.Controls.Add(this.checkBox4);
             this.flowLayoutPanel1.Controls.Add(this.alm3);
             this.flowLayoutPanel1.Controls.Add(this.checkBox5);
-            this.flowLayoutPanel1.Controls.Add(this.fam3);
+            this.flowLayoutPanel1.Controls.Add(this.addFam3);
             this.flowLayoutPanel1.Controls.Add(this.checkBox6);
             this.flowLayoutPanel1.Controls.Add(this.ordre);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(607, 121);
@@ -137,14 +138,15 @@
             this.checkBox1.Text = "Fuldkornsbund";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // fam1
+            // addFam1
             // 
-            this.fam1.Location = new System.Drawing.Point(3, 64);
-            this.fam1.Name = "fam1";
-            this.fam1.Size = new System.Drawing.Size(75, 23);
-            this.fam1.TabIndex = 1;
-            this.fam1.Text = "Familie";
-            this.fam1.UseVisualStyleBackColor = true;
+            this.addFam1.Location = new System.Drawing.Point(3, 64);
+            this.addFam1.Name = "addFam1";
+            this.addFam1.Size = new System.Drawing.Size(75, 23);
+            this.addFam1.TabIndex = 1;
+            this.addFam1.Text = "Familie";
+            this.addFam1.UseVisualStyleBackColor = true;
+            this.addFam1.Click += new System.EventHandler(this.addFam1_Click);
             // 
             // checkBox2
             // 
@@ -176,14 +178,15 @@
             this.checkBox3.Text = "Fuldkornsbund";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // fam2
+            // addFam2
             // 
-            this.fam2.Location = new System.Drawing.Point(3, 122);
-            this.fam2.Name = "fam2";
-            this.fam2.Size = new System.Drawing.Size(75, 23);
-            this.fam2.TabIndex = 4;
-            this.fam2.Text = "Familie";
-            this.fam2.UseVisualStyleBackColor = true;
+            this.addFam2.Location = new System.Drawing.Point(3, 122);
+            this.addFam2.Name = "addFam2";
+            this.addFam2.Size = new System.Drawing.Size(75, 23);
+            this.addFam2.TabIndex = 4;
+            this.addFam2.Text = "Familie";
+            this.addFam2.UseVisualStyleBackColor = true;
+            this.addFam2.Click += new System.EventHandler(this.addFam2_Click);
             // 
             // checkBox4
             // 
@@ -215,14 +218,15 @@
             this.checkBox5.Text = "Fuldkornsbund";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // fam3
+            // addFam3
             // 
-            this.fam3.Location = new System.Drawing.Point(3, 180);
-            this.fam3.Name = "fam3";
-            this.fam3.Size = new System.Drawing.Size(75, 23);
-            this.fam3.TabIndex = 5;
-            this.fam3.Text = "Familie";
-            this.fam3.UseVisualStyleBackColor = true;
+            this.addFam3.Location = new System.Drawing.Point(3, 180);
+            this.addFam3.Name = "addFam3";
+            this.addFam3.Size = new System.Drawing.Size(75, 23);
+            this.addFam3.TabIndex = 5;
+            this.addFam3.Text = "Familie";
+            this.addFam3.UseVisualStyleBackColor = true;
+            this.addFam3.Click += new System.EventHandler(this.addFam3_Click);
             // 
             // checkBox6
             // 
@@ -270,12 +274,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button alm1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button fam1;
+        private System.Windows.Forms.Button addFam1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button alm2;
-        private System.Windows.Forms.Button fam2;
+        private System.Windows.Forms.Button addFam2;
         private System.Windows.Forms.Button alm3;
-        private System.Windows.Forms.Button fam3;
+        private System.Windows.Forms.Button addFam3;
         private System.Windows.Forms.Button ordre;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
