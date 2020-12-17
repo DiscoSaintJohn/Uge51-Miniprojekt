@@ -12,9 +12,9 @@ namespace Pizzeria
 {
     public partial class Form1 : Form
     {   
-        public string[] nr1 = new string[] { "normal", "1", "Margerita", "75", "Pizzabund", "tomatsovs", "ost", "oregano" };   //liste med pizzaer og informationer {str, nr, navn, pris, ingredienser...}
-        public string[] nr2 = new string[] { "normal", "2", "Classic",   "80", "Pizzabund", "tomatsovs", "ost", "oregano", "skinke" };
-        public string[] nr3 = new string[] { "normal", "3", "Pepperoni", "80", "Pizzabund", "tomatsovs", "ost", "oregano", "pepperoni" };
+        public string[] nr1 = new string[] { "normal", "1", "Margerita", "40", "75", "115", "Pizzabund", "tomatsovs", "ost", "oregano" };   //liste med pizzaer og informationer {str, nr, navn, priser, ingredienser...}
+        public string[] nr2 = new string[] { "normal", "2", "Classic",  "45", "80", "120", "Pizzabund", "tomatsovs", "ost", "oregano", "skinke" };
+        public string[] nr3 = new string[] { "normal", "3", "Pepperoni", "45", "80", "120", "Pizzabund", "tomatsovs", "ost", "oregano", "pepperoni" };
 
         public string[] order = new string[] { };
 
@@ -25,17 +25,78 @@ namespace Pizzeria
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < nr1.Length - 1; i++)
+            string pizza1 = nr1[1] + " - " + nr1[2];
+            string pizza2 = nr2[1] + " - " + nr2[2];
+            string pizza3 = nr3[1] + " - " + nr3[2];
+
+            string ingredients1 = "";
+            string ingredients2 = "";
+            string ingredients3 = "";
+
+            for (int i = 6; i < nr1.Length; i++)
             {
-                tableLayoutPanel1.Text = nr1[i];
+                ingredients1 += nr1[i] + ", ";
             }
+            for (int i = 6;i < nr2.Length; i++)
+            {
+                ingredients2 += nr2[i] + ", ";
+            }
+            for (int i = 6; i < nr3.Length; i++)
+            {
+                ingredients3 += nr3[i] + ", ";
+            }
+
+            nameList.Items.Add(pizza1);
+            nameList.Items.Add("");
+            nameList.Items.Add("");
+            nameList.Items.Add("");
+            nameList.Items.Add(pizza2);
+            nameList.Items.Add("");
+            nameList.Items.Add("");
+            nameList.Items.Add("");
+            nameList.Items.Add(pizza3);
+
+            ingredientList.Items.Add("- " + ingredients1);
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("-----------------------------------------------------------------------------------------------------");
+            ingredientList.Items.Add("- " + ingredients2);
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("");
+            ingredientList.Items.Add("-----------------------------------------------------------------------------------------------------");
+            ingredientList.Items.Add("- " + ingredients3);
+
+            //this.Controls.Add(nameList);
         }
 
         public void AddToCart(int quantity, string[] details)
-        {
-            for (int i = 0; i < 3; i++)     //Udfylder de første 4 fælter i details[]: nummer, navn og pris
+        { 
+            if (details[0] == "lille")          //Udfylder de første 4 fælter i details[]:str, nummer, navn og pris på lille pizza
             {
-                order[i] = details[i];
+                for (int i = 0; i <= 3; i++)     
+                {
+                    order[i] = details[i];
+                }
+            }
+            
+            if (details[0] == "normal")          //... normal pizza
+            {
+                for ( int i = 0; i < 2; i++)
+                {
+                    order[i] = details[i];
+                }
+                order[3] = details[5];
+            }
+
+            if (details[0] == "familie")        // ... familie pizza
+            {
+                for ( int i = 0; i < 2; i++)
+                {
+                    order[i] = details[i];
+                }
+                order[3] = details[5];
             }
 
             string[] ingredients = new string[] { };
@@ -67,12 +128,20 @@ namespace Pizzeria
 
         public void ShowCart()
         {
-
+            // var cartList = new Form();
+            // cartList.Show(this);
         }
 
         private void displayMenu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void lille1_Click(object sender, EventArgs e)   // lillex ændrer str og sneder tio AddToCart
+        {
+            nr1[0] = "lille";
+            AddToCart(1, nr1);
+            nr1[0] = "normal";
         }
 
         private void alm1_Click(object sender, EventArgs e)     // almx_Click sender 1 pizza til AddToCart
@@ -87,6 +156,13 @@ namespace Pizzeria
             nr1[0] = "normal";
         }
 
+        private void lille2_Click(object sender, EventArgs e)
+        {
+            nr2[0] = "lille";
+            AddToCart(1, nr2);
+            nr2[0] = "normal";
+        }
+
         private void alm2_Click(object sender, EventArgs e)
         {
             AddToCart(1, nr2);
@@ -97,6 +173,13 @@ namespace Pizzeria
             nr2[0] = "familie";
             AddToCart(1, nr2);
             nr2[0] = "normal";
+        }
+
+        private void lille3_Click(object sender, EventArgs e)
+        {
+            nr3[0] = "lille";
+            AddToCart(1, nr3);
+            nr3[0] = "normal";
         }
 
         private void alm3_Click(object sender, EventArgs e)
@@ -124,11 +207,6 @@ namespace Pizzeria
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -142,6 +220,45 @@ namespace Pizzeria
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)       // check boksen ændre normalbund til fuldkorn o gomvendt
+        {
+            if (fuldkorn1.Checked)
+                nr1[6] = "Fuldkornsbund";
+            if (!fuldkorn1.Checked)
+                nr2[6] = "Pizzabund";
+        }
+
+        private void fuldkorn2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fuldkorn2.Checked)
+                nr2[6] = "Fuldkornsbund";
+            if (!fuldkorn2.Checked)
+                nr2[6] = "Pizzabund";
+        }
+
+        private void fuldkorn3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fuldkorn3.Checked)
+                nr3[6] = "Fuldkornsbund";
+            if (!fuldkorn3.Checked)
+                nr3[6] = "Pizzabund";
         }
     }
 }
