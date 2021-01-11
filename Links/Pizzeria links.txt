@@ -1,0 +1,16 @@
+https://www.c-sharpcorner.com/UploadFile/84c85b/object-oriented-programming-using-C-Sharp-net/
+- hjælp til at finde rundt i og udnytte OOP. har ikke ulgt tutorial.
+
+https://docs.microsoft.com/en-us/visualstudio/ide/step-10-write-code-for-additional-buttons-and-a-check-box?view=vs-2019
+- hjælp til at finde rundt i alle elementerne de rer i Forms. Fulgte tutorial men skrev det hurtigt om til Pizzeria.
+
+https://www.youtube.com/watch?v=GAvhe6oe-_4&t=31s&ab_channel=DerekBanas
+https://www.youtube.com/watch?v=pTB0EiLXUC8&ab_channel=ProgrammingwithMosh
+- Så de her fordi jeg ville være sikker på hvad classes og OOP var.
+
+https://www.tutlane.com/tutorial/csharp/csharp-constructors-with-examples
+- Prøvede at lave pizzaer med en constructor som den er vist her, men kunne ikke få det til at fungere.
+
+https://searchapparchitecture.techtarget.com/definition/object-oriented-programming-OOP
+- gav mig et godt overblik over OOP, og hvordan jeg skal bygge min app op.
+
