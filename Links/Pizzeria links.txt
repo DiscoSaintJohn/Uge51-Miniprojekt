@@ -14,3 +14,21 @@ https://www.tutlane.com/tutorial/csharp/csharp-constructors-with-examples
 https://searchapparchitecture.techtarget.com/definition/object-oriented-programming-OOP
 - gav mig et godt overblik over OOP, og hvordan jeg skal bygge min app op.
 
+https://www.geeksforgeeks.org/how-to-set-the-font-of-the-listbox-in-c-sharp/?ref=rp
+- hjælp til listbox
+
+https://www.geeksforgeeks.org/c-sharp-listbox-class/#:~:text=In%20Windows%20Forms%2C%20ListBox%20control,generally%20displayed%20in%20multiple%20columns.
+- har ikke lavet tutorialen, jeg skulle bare ha hjælp med hvordan en listbox virker.
+
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.tablelayoutpanel?view=net-5.0
+https://www.c-sharpcorner.com/uploadfile/mahesh/tablelayoutpanel-in-C-Sharp/
+- tableLayoutPanel
+
+https://stackoverflow.com/questions/63296244/trying-to-create-a-shopping-cart-in-windows-form-c-specifically-adding-a-new
+. prøvede at finde hjælp men der er intet der virkede for mig.
+
+https://docs.microsoft.com/en-us/visualstudio/ide/step-1-create-a-windows-forms-application-project?view=vs-2019
+- fulgte denne tutorial helt i starten, har naturligvis ændret meget siden.
+
+https://docs.microsoft.com/en-us/dotnet/desktop/winforms/overview/?view=netdesktop-5.0
+- intro til Forms.
